@@ -14,7 +14,7 @@ def main():
 main()
 
 random_score = random.randint(1,100)
-print(random_score)
+print("Random number is : ",random_score)
 score = random_score
 if score < 0 or score > 100:
     print("Invalid score")
