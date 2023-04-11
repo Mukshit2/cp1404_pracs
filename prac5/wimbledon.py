@@ -1,40 +1,27 @@
 import csv
-filename = wimbledon.csv
-def read_file(filename):
-    champions = []
-    with open("wimbledon.csv", "r", encoding="utf-8-sig") as in_file:
-        reader = csv.reader(in_file)
-        for row in reader:
-            champions.append(row)
-    return champions
 
-def get_champions(champions):
-    champ_dict = {}
-    for champ in champions:
-        name = champ[0]
-        count = int(champ[1])
-        champ_dict[name] = count
-    return champ_dict
-
-def get_countries(champions):
+# open the file and read data
+with open('wimbledon.csv', newline='') as csvfile:
+    reader = csv.reader(csvfile)
+    next(reader)  # skip header row
+    champions = {}
     countries = set()
-    for champ in champions:
-        country = champ[2]
+    for row in reader:
+        # extract champion and country from row
+        champion, country = row[2], row[1]
+        # add champion to dictionary and increment count
+        champions[champion] = champions.get(champion, 0) + 1
+        # add country to set
         countries.add(country)
-    countries_list = sorted(list(countries))
-    countries_string = ', '.join(countries_list)
-    return countries_string
 
-def main():
-    filename = 'wimbledon.csv'
-    champions = read_file(filename)
-    champ_dict = get_champions(champions)
-    countries_string = get_countries(champions)
-    print("Wimbledon Champions:")
-    for name, count in champ_dict.items():
-        print(f"{name} {count}")
-    print(f"\nThese {len(countries_string.split(', '))} countries have won Wimbledon:")
-    print(countries_string)
+# sort countries alphabetically and convert to list
+countries = sorted(list(countries))
 
-if __name__ == '__main__':
-    main()
+# display champions and their counts
+print("Wimbledon Champions:")
+for champion, count in sorted(champions.items()):
+    print(f"{champion} {count}")
+
+# display countries in alphabetical order
+print(f"\nThese {len(countries)} countries have won Wimbledon:")
+print(", ".join(countries))
