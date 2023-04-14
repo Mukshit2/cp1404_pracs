@@ -1,7 +1,7 @@
 '''
 Name: Mukshit 
 student id - jc955870
-GITHUB URL - 
+GITHUB URL - https://github.com/Mukshit2/cp1404/tree/main/assignment%201
 
 '''
 
