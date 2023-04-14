@@ -1,3 +1,27 @@
+def main():
+    score = get_score()
+
+    while True:
+        print("(G)et a valid score")
+        print("(P)rint result")
+        print("(S)how stars")
+        print("(Q)uit")
+
+        choice = input("Enter your choice: ")
+
+        if choice.upper() == "G":
+            score = get_score()
+        elif choice.upper() == "P":
+            print_result(score)
+        elif choice.upper() == "S":
+            show_stars(score)
+        elif choice.upper() == "Q":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+
 def get_score():
     while True:
         try:
@@ -23,29 +47,6 @@ def print_result(score):
 
 def show_stars(score):
     print("*" * score)
-
-def main():
-    score = get_score()
-
-    while True:
-        print("(G)et a valid score")
-        print("(P)rint result")
-        print("(S)how stars")
-        print("(Q)uit")
-
-        choice = input("Enter your choice: ")
-
-        if choice.upper() == "G":
-            score = get_score()
-        elif choice.upper() == "P":
-            print_result(score)
-        elif choice.upper() == "S":
-            show_stars(score)
-        elif choice.upper() == "Q":
-            print("Goodbye!")
-            break
-        else:
-            print("Invalid choice. Please try again.")
 
 
 main()
