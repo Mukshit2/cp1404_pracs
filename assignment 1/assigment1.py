@@ -2,7 +2,6 @@
 Name: Mukshit 
 student id - jc955870
 GITHUB URL - https://github.com/Mukshit2/cp1404/tree/main/assignment%201
-
 '''
 
 import csv
@@ -12,6 +11,7 @@ import random
 FILENAME = "places.csv"
 HEADER = ["Name", "Country", "Priority", "Visited"]
 UNVISITED_MARK = "*"
+
 
 # Main program
 
@@ -26,10 +26,10 @@ def main():
 
     while True:
         sorted(
-        places, key=lambda place: (place[3], -int(place[2])))
+            places, key=lambda place: (place[3], -int(place[2])))
         print("Menu:")
         print("L - List places")
-        print("A - Add new place") 
+        print("A - Add new place")
         print("M - Mark a place as visited")
         print("R - Recommend a place to visit")
         print("Q - Quit\n")
@@ -83,11 +83,11 @@ def display_places(places):
     max_name_len = max(len(place[0]) for place in places)
     max_country_len = max(len(place[1]) for place in places)
     print(
-        f"{''*(max_name_len-4)}{''*(max_country_len-7)}")
-    print(""*(max_name_len+max_country_len+20))
-    #sorted_places = sorted(
-     #   places, key=lambda place: (place[3], -int(place[2])))
-    for i,place in enumerate (places,1):
+        f"{'' * (max_name_len - 4)}{'' * (max_country_len - 7)}")
+    print("" * (max_name_len + max_country_len + 20))
+    # sorted_places = sorted(
+    #   places, key=lambda place: (place[3], -int(place[2])))
+    for i, place in enumerate(places, 1):
         visited_mark = UNVISITED_MARK if place[3] == "n" else " "
         print(f"{visited_mark}{i}. {place[0]:{max_name_len}} in {place[1]:{max_country_len}}"
               f"{place[2]:>8}")
